@@ -22,18 +22,13 @@ pipeline {
             }
             steps {
                 sh "./vendor/bin/phpunit tests --log-junit build/tests/${env.BUILD_ID}.xml"
+                junit 'build/tests/**/*.xml'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
             }
-        }
-    }
-
-    post {
-        always {
-            junit 'build/tests/**/*.xml'
         }
     }
 }
