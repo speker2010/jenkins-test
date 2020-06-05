@@ -25,10 +25,5 @@ pipeline {
                 junit 'build/tests/**/*.xml'
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
     }
 }
