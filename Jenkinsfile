@@ -30,4 +30,10 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            junit 'build/tests/result.xml'
+        }
+    }
 }
