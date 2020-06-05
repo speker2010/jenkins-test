@@ -20,6 +20,10 @@ final class Email
         return $this->email;
     }
 
+    public function send() {
+        return true;
+    }
+
     private function ensureIsValidEmail(string $email): void
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

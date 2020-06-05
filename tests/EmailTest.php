@@ -25,4 +25,10 @@ final class EmailTest extends TestCase
             Email::fromString('user@example.com')
         );
     }
+
+    public function testSend(): void
+    {
+        $email = Email::fromString('test@mail.ru');
+        $this->assertTrue($email->send());
+    }
 }
