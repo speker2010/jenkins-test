@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
 
     stages {
         stage('Build') {
@@ -21,7 +21,7 @@ pipeline {
                 }
             }
             steps {
-                sh './vendor/bin/phpunit tests --log-junit builds/tests/result.xml'
+                sh "./vendor/bin/phpunit tests --log-junit build/tests/${env.BUILD_ID}.xml"
             }
         }
         stage('Deploy') {
@@ -33,7 +33,7 @@ pipeline {
 
     post {
         always {
-            junit 'build/tests/result.xml'
+            junit 'build/tests/**/*.xml'
         }
     }
 }
